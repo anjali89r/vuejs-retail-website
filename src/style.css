@@ -1,0 +1,120 @@
+ .application{
+   font-family: 'Poppins', sans-serif!important;
+}
+.orange-link{
+   color: orange;
+}
+a{
+   text-decoration: none;
+}
+.header-top .v-toolbar__content {
+   padding: 0 104px;
+    height: 44px!important;
+ }
+
+.svg-inline--fa{
+   font-size: 13px;
+}
+.fa-phone-volume {
+   color: #90D3F0;
+}
+.icon-left{
+   padding-left: 1px;
+}
+.font-content{
+   font-size: 12px;
+   color: #222222;
+
+}
+.fa-facebook-f, .fa-pinterest, .fa-instagram {
+   color: #D1D1D1;
+}
+.display-1{
+   color: #ffecb3;
+   font-family: 'Poppins', sans-serif!important;
+ }
+.jumbo-head .subheading{
+   color: #ffecb3;
+}
+.text-xs-left{
+   text-align: left;
+}
+h1{
+   letter-spacing: 3px;
+   font-weight: 500;
+}
+.main-menu .theme--light.v-btn, .main-menu .theme--light.application, .main-menu .theme--light.v-toolbar{
+   color: #e48a17;
+   font-weight:800;
+}
+.main-menu .v-btn__content{
+   text-transform: capitalize;
+ }
+
+.text-center{
+  text-align: center;
+}
+.mt2{
+  margin-top: 20px;
+}
+.product-crumbs .v-breadcrumbs{
+   padding: 0px;
+}
+.product-crumbs ul{
+   padding-left: 0px;
+}
+.mt-30{
+   margin-top: 30px;
+}
+.font-custom{
+   line-height: 1.7em;
+   letter-spacing: 0.5px;
+   text-align: justify;
+ }
+ .custom-line{
+   display: inline-block;
+   padding-bottom: 1px;
+   position: relative;
+ }
+ .custom-line:before{
+     content: "";
+     position: absolute;
+     width: 50%;
+     height: 1px;
+     bottom: 0;
+     left: 0%;
+     border-bottom: 3px solid #e48a17;
+ }
+ h2.horizontal-line {
+   /* overflow: hidden; */
+   text-align: center;
+   color: #e48a17;
+ }
+ .contact-btn{
+   background-color: #e48a17!important;
+   border-radius: 3px!important;
+   color: #fff!important;
+ }
+.my-5{
+   margin-top: 0px!important;
+   margin-bottom: 48px!important;
+}
+.pad-no{
+   padding-top:0px!important;
+}
+.v-list__group__header--active .v-list__group__header__prepend-icon .v-icon{
+   color: #fff;
+}
+.v-list__group__header--active .v-list__group__header__prepend-icon .v-icon:hover{
+   color: #8C5D19;
+}
+
+a{
+   color:  #e48a17!important;
+}
+.theme--light.v-breadcrumbs .v-breadcrumbs__divider, .theme--light.v-breadcrumbs .v-breadcrumbs__item--disabled{
+   color: rgba(0,0,0,0.38)!important;
+}
+.white-style{
+   color: #fff;
+}
