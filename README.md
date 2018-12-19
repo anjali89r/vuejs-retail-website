@@ -1,4 +1,4 @@
-# ekatva-static-site
+# vuejs-static-site
 
 ## Project setup
 ```
