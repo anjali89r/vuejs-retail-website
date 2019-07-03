@@ -4,15 +4,15 @@
       <v-container>
         <v-layout row wrap class="product-crumbs">
           <v-flex xs12>
-            <h1>Set Mundu</h1>
+            <h1>Kerala Set Mundu</h1>
             <v-breadcrumbs :items="crumbs" divider=">"></v-breadcrumbs>
             <v-divider></v-divider>
           </v-flex>
 
           <v-layout class="mt-30">
             <v-flex class="font-custom">
-              <p>Ekatva set mundu also called as Mundu and Neriyathu is the oldest remnant of Saree. Set mundu is adorned with golden jari border and is made from fine cotton fabric. There are two pieces in a set mundu - One piece is called the mundu and the other is called the Neriyathu or Kavani. In the Set Mundu, the most basic traditional piece is the mundu or Dhoti, worn around the loins to cover the lower part of the body, while the Neriyathu forms the upper garment.</p>
-              <p>Ekatva offers tissue set mundu specially designed for the wedding or other occasions. We offer multiple colour combinations of set mundu with varying sizes of golden jari work (kara). All our set mundu's are weaved in Kuthampully village located in Thiruvilwamala Grama Panchayat of Thrissur district of Kerala.</p>
+              <p>Ekatva Kerala Set Mundu also called as Mundu and Neriyathu is the oldest remnant of Saree. Kerala Set Mundu is adorned with golden jari border and is made from fine cotton fabric. There are two pieces in a set mundu - One piece is called the mundu and the other is called the Neriyathu or Kavani. In the Set Mundu, the most basic traditional piece is the mundu or Dhoti, worn around the loins to cover the lower part of the body, while the Neriyathu forms the upper garment.</p>
+              <p>Ekatva offers set mundu designs specially designed for the wedding or other occasions. We offer multiple colour combinations of set mundu with varying sizes of golden jari work (kara). All our set mundu's are weaved in Kuthampully village located in Thiruvilwamala Grama Panchayat of Thrissur district of Kerala.</p>
             </v-flex>
           </v-layout>
         </v-layout>
@@ -24,14 +24,15 @@
         <v-layout column wrap class="my-5">
           <v-flex xs12 sm4 class="my-3">
             <h2 class="headline horizontal-line">
-              <strong>Ekatva Set Mundu</strong>
+              <strong>Kerala Set Mundu Collections</strong>
             </h2>
           </v-flex>
 
-          <carousel :scrollPerPage="true" :perPageCustom="[[300, 1], [480, 2], [768, 3]]">
-            <slide v-for="item in items">
-              <v-card hover raised>
-                <v-img class="white--text" height="200px" aspect-ratio="1" :src="item.image">
+        <carousel :scrollPerPage="true" :perPageCustom="[[300, 1], [480, 2], [768, 3]]">
+            <slide v-for="item in items" :key="item.name">
+              <v-card hover raised v-if="$vuetify.breakpoint.xsAndDown">
+                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcXs">
+                  <!-- //:src="item.image" -->
                   <v-container fill-height fluid>
                     <v-layout fill-height>
                       <v-flex xs12 align-end flexbox>
@@ -42,7 +43,75 @@
                 </v-img>
                 <v-card-title>
                   <div class="card-content">
-                    <h3>{{item.name}}</h3>
+                    <h4>{{item.name}}</h4>
+                  </div>
+                </v-card-title>
+              </v-card>
+              <v-card hover raised v-else-if="$vuetify.breakpoint.smAndDown">
+                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcSm">
+                  <!-- //:src="item.image" -->
+                  <v-container fill-height fluid>
+                    <v-layout fill-height>
+                      <v-flex xs12 align-end flexbox>
+                        <span class="headline"></span>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-img>
+                <v-card-title>
+                  <div class="card-content">
+                    <h4>{{item.name}}</h4>
+                  </div>
+                </v-card-title>
+              </v-card>
+              <v-card hover raised v-else-if="$vuetify.breakpoint.mdAndDown">
+                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcMd">
+                  <!-- //:src="item.image" -->
+                  <v-container fill-height fluid>
+                    <v-layout fill-height>
+                      <v-flex xs12 align-end flexbox>
+                        <span class="headline"></span>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-img>
+                <v-card-title>
+                  <div class="card-content">
+                    <h4>{{item.name}}</h4>
+                  </div>
+                </v-card-title>
+              </v-card>
+              <v-card hover raised v-else-if="$vuetify.breakpoint.lgAndDown">
+                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcLg">
+                  <!-- //:src="item.image" -->
+                  <v-container fill-height fluid>
+                    <v-layout fill-height>
+                      <v-flex xs12 align-end flexbox>
+                        <span class="headline"></span>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-img>
+                <v-card-title>
+                  <div class="card-content">
+                    <h4>{{item.name}}</h4>
+                  </div>
+                </v-card-title>
+              </v-card>
+              <v-card hover raised v-else>
+                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcXl">
+                  <!-- //:src="item.image" -->
+                  <v-container fill-height fluid>
+                    <v-layout fill-height>
+                      <v-flex xs12 align-end flexbox>
+                        <span class="headline"></span>
+                      </v-flex>
+                    </v-layout>
+                  </v-container>
+                </v-img>
+                <v-card-title>
+                  <div class="card-content">
+                    <h4>{{item.name}}</h4>
                   </div>
                 </v-card-title>
               </v-card>
@@ -69,7 +138,7 @@
           <v-flex xs12>
             <v-card class="elevation-0 transparent">
               <v-card-title primary-title class="layout">
-                <div class="headline custom-line">About Ekatva</div>
+               <h4> <div class="headline custom-line">About Ekatva</div></h4>
               </v-card-title>
               <v-card-text class="font-custom">
                 <p>Ekatva Collections brings to you an unique selection of traditional
@@ -104,6 +173,15 @@
 import { Carousel, Slide } from "vue-carousel";
 export default {
   name: "set-mundu",
+  head: {
+    title: {
+      inner: `Kerala Set Mundu-Mundu Neriyathu`,
+      separator: '|',
+      complement: 'Kerala Set Mundu Wholesale Merchant',
+    meta: [
+       { name: 'description', content: `Buy unique Kerala Set Mundu collections from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates.` }
+    ]
+  }},
   components: {
     Carousel,
     Slide
@@ -125,55 +203,108 @@ export default {
           href: ""
         },
         {
-          text: "set-mundu",
+          text: "Set Mundu",
           disabled: true,
           href: "/products/set-mundu"
         }
       ],
 
-      items: [
+     items: [
         {
-          name: "Golden Kasavu Dhoti",
+          name: "Ekatva Set Mundu with green jari",
           tag: "cotton",
-          image:
-            "//res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_500,w_1137/v1544885301/Dhoti/goldenkasavudhothi.jpg"
+
+          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1546392470/SetMundu/ekatvasetmundu1.jpg",
+
+          srcSm:
+          "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_268,w_344/v1546392470/SetMundu/ekatvasetmundu1.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544885095/Dhoti/ekatvadhothi.jpg",
+          srcMd:
+          "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546392470/SetMundu/ekatvasetmundu1.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544885095/Dhoti/ekatvadhothi.jpg",
+          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_252,w_328/v1546392470/SetMundu/ekatvasetmundu1.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544885095/Dhoti/ekatvadhothi.jpg",
+          srcXl:
+          "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546392470/SetMundu/ekatvasetmundu1.jpg"
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544885095/Dhoti/ekatvadhothi.jpg"
         },
         {
-          name: "Silver Kasavu Dhoti",
-          tag: "kalamkari",
-          image:
-            "//res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_200/v1544885496/Dhoti/silverkasavudhoti.jpg"
+          name: "Ekatva Set Mundu with red jari",
+          tag: "cotton",
+
+          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1546737133/SetMundu/ekatvasetmundured.jpg",
+
+          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_268,w_344/v1546737133/SetMundu/ekatvasetmundured.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544885496/Dhoti/silverkasavudhoti.jpg",
+          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546737133/SetMundu/ekatvasetmundured.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544885496/Dhoti/silverkasavudhoti.jpg",
+          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_252,w_328/v1546737133/SetMundu/ekatvasetmundured.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544885496/Dhoti/silverkasavudhoti.jpg",
+          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546737133/SetMundu/ekatvasetmundured.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544885496/Dhoti/silverkasavudhoti.jpg"
         },
         {
-          name: "Milano",
-          tag: "Khaki",
-          image:
-            "//res.cloudinary.com/ddglp4e0g/image/upload/v1541781402/ekatva/setmundu2.jpg"
+          name: "Ekatva set mundu with blue jari",
+          tag: "cotton",
+          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1546737086/SetMundu/ekatvasetmundublue.jpg",
+
+          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_268,w_344/v1546737086/SetMundu/ekatvasetmundublue.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544887188/Dhoti/dhothiorange.jpg",
+          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546737086/SetMundu/ekatvasetmundublue.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothiorange.jpg",
+          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_252,w_328/v1546737086/SetMundu/ekatvasetmundublue.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544887188/Dhoti/dhothiorange.jpg",
+          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546737086/SetMundu/ekatvasetmundublue.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothiorange.jpg"
         },
         {
-          name: "Tsing Tao",
-          tag: "Kasavu",
-          image:
-            "//res.cloudinary.com/ddglp4e0g/image/upload/v1532873694/ekatva/dress3.jpg"
+          name: "Ekatva Set Mundu with orange jari",
+          tag: "cotton",
+          srcXs:
+            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1546737108/SetMundu/ekatvasetmunduorange.jpg",
+
+          srcSm:
+            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_268,w_344/v1546737108/SetMundu/ekatvasetmunduorange.jpg",
+          srcMd:
+            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546737108/SetMundu/ekatvasetmunduorange.jpg",
+          srcLg:
+            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_252,w_328/v1546737108/SetMundu/ekatvasetmunduorange.jpg",
+          srcXl:
+            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546737108/SetMundu/ekatvasetmunduorange.jpg"
         },
         {
-          name: "Frances",
-          tag: "Kanchi",
-          image:
-            "//res.cloudinary.com/ddglp4e0g/image/upload/v1532873694/ekatva/dress3.jpg"
-        },
-        {
-          name: "Burma Superstar",
-          tag: "kasavu",
-          image:
-            "//res.cloudinary.com/ddglp4e0g/image/upload/v1532873694/ekatva/dress3.jpg"
-        },
-        {
-          name: "Salt and Straw",
-          tag: "pattu",
-          image:
-            "//res.cloudinary.com/ddglp4e0g/image/upload/v1532873694/ekatva/dress3.jpg"
+          name: "Ekatva Set Mundu with violet blouse",
+          tag: "cotton",
+          srcXs:
+            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1546737068/SetMundu/ekatvasetmunduviolet.jpg",
+          srcSm:
+            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_268,w_344/v1546737068/SetMundu/ekatvasetmunduviolet.jpg",
+          srcMd:
+            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546737068/SetMundu/ekatvasetmunduviolet.jpg",
+          srcLg:
+            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1546737068/SetMundu/ekatvasetmunduviolet.jpg",
+          srcXl:
+            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546737068/SetMundu/ekatvasetmunduviolet.jpg"
         }
+        ,
+        {
+          name: "Kerala Saree with design",
+          tag: "cotton",
+
+          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1546739146/SetMundu/bluesetmundu.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1544887188/Dhoti/dhothibrown.jpg",
+          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_268,w_344/v1546739146/SetMundu/bluesetmundu.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544887188/Dhoti/dhothibrown.jpg",
+          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546739146/SetMundu/bluesetmundu.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothibrown.jpg",
+          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1546739146/SetMundu/bluesetmundu.jpg",
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544887188/Dhoti/dhothibrown.jpg",
+          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546739146/SetMundu/bluesetmundu.jpg"
+            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothibrown.jpg"
+        }
+
+
+
       ]
     };
   }

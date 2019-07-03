@@ -22,34 +22,38 @@
       <v-flex xs12 md5 offset-md1 class="mt50">
         <v-layout row>
           <v-flex xs1>
-            <v-icon>place</v-icon>
+            <v-icon color="red darken-2">place</v-icon>
           </v-flex>
           <v-flex xs6>
-            <span>Ekatva, Kausthubham, IV st, Harinagar</span>
+            <span>Ekatva Collections, Ottapalam,</span>
+            <br/>
+            <span>Kerala-679103</span>
           </v-flex>
         </v-layout>
         <v-layout row wrap class="mt2">
           <v-flex xs1>
-            <v-icon>local_phone</v-icon>
+            <v-icon color="blue darken-2">local_phone</v-icon>
           </v-flex>
           <v-flex xs6>
-            <span>+91 9447635674</span>
+            <a href="tel:+918547775584" class="hyperlink">
+            <span>+91 8547775584</span>
+            </a>
           </v-flex>
         </v-layout>
         <v-layout row wrap class="mt2">
           <v-flex xs1>
-            <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'whatsapp' }"/>
+            <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'whatsapp' }" :style="{ color: 'green' }"/>
           </v-flex>
           <v-flex xs6>
-            <span>+91 9447635674</span>
+            <a href="https://api.whatsapp.com/send?phone=918547775584" class="hyperlink"><span>+91 8547775584</span></a>
           </v-flex>
         </v-layout>
         <v-layout row wrap class="mt2">
           <v-flex xs1>
-            <v-icon>local_post_office</v-icon>
+            <v-icon color="teal darken-2">local_post_office</v-icon>
           </v-flex>
           <v-flex xs6>
-            <span>eka@gmail.com</span>
+            <a href="mailto:ekatvagms@gmail.com" class="hyperlink"><span>ekatvagms@gmail.com</span></a>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -121,5 +125,6 @@ export default {
    font-size: 24px!important;
    color: rgba(0,0,0,0.54);
  }
+
 </style>
 

@@ -32,6 +32,8 @@ a{
 .display-1{
    color: #ffecb3;
    font-family: 'Poppins', sans-serif!important;
+   font-size:24px !important;
+
  }
 .jumbo-head .subheading{
    color: #ffecb3;
@@ -117,4 +119,28 @@ a{
 }
 .white-style{
    color: #fff;
+}
+
+.saree-img .v-image__image--cover {
+   background-size: contain!important;
+}
+@media screen and (min-width: 1266px) and (max-width: 1903px) {
+   .VueCarousel {
+      max-width: 1130px;
+   }
+}
+@media screen and (min-width: 759px) and (max-width: 1265px) {
+   .VueCarousel {
+      max-width: 758px;
+   }
+}
+@media screen and (min-width: 477px) and (max-width: 758px) {
+   .VueCarousel {
+      max-width: 528px;
+   }
+}
+@media screen and (max-width: 476px) {
+   .VueCarousel {
+      max-width: 384px;
+   }
 }

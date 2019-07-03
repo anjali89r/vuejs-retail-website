@@ -30,7 +30,7 @@ export default new Router({
       component: () => import(/* webpackChunkName: "dhoti" */ './views/Dhoti.vue')
     },
     {
-      path: '/products/set-saree',
+      path: '/products/kerala-saree',
       name: 'setsaree',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -52,6 +52,14 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "setmundu" */ './views/Contact.vue')
+    },
+    {
+      path: '/manufacturing',
+      name: 'manufacturing',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "setmundu" */ './views/Manufacturing.vue')
     }
   ],
   scrollBehavior() {

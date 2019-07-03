@@ -3,28 +3,29 @@
     <header id="header">
       <div class="header-top">
         <v-toolbar color="white">
-          <v-btn icon href="https://wa.me/917558030904" class="hidden-sm-and-down">
+          <v-btn icon target="_blank"  href="https://wa.me/918547775584" class="hidden-sm-and-down">
             <font-awesome-icon icon="phone-volume"/>
-            <span class="font-content icon-left">+917558030904</span>
+            <span class="font-content icon-left">+918547775584</span>
           </v-btn>
 
           <v-spacer></v-spacer>
 
-          <v-btn icon href="https://www.facebook.com/ektvaa">
+          <v-btn icon target="_blank"  href="https://www.facebook.com/ekatva.co" aria-label="facebook">
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook-f' }"/>
           </v-btn>
 
-          <v-btn icon href>
+          <v-btn icon target="_blank"  href="https://in.pinterest.com/ekatvacollections/" aria-label="pininterest">
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'pinterest' }"/>
           </v-btn>
 
-          <v-btn icon href="https://www.instagram.com/ekatvacollection/">
+          <v-btn icon target="_blank"  href="https://www.instagram.com/ekatvacollection/" aria-label="instagram">
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }"/>
           </v-btn>
         </v-toolbar>
       </div>
       <div class="main-menu">
         <v-navigation-drawer class="sideDrawer" v-model="sideNav" fixed temporary dark>
+          <v-list>
           <v-list-tile>
             <v-list-tile-action>
               <v-icon>home</v-icon>
@@ -41,7 +42,7 @@
               </v-list-tile-title>
             </v-list-tile>
 
-            <v-list-tile v-for="(item, i) in products" :key="i">
+            <v-list-tile v-for="(item, i) in products" :key="i" >
               <v-list-tile-title>
                 <router-link :to="`/products/${item.to}`">{{ item.title }}</router-link>
               </v-list-tile-title>
@@ -53,7 +54,7 @@
           <v-list-tile>
             <v-list-tile-action></v-list-tile-action>
             <v-list-tile-title>
-              <router-link to="#">Blog</router-link>
+              <router-link to="/manufacturing">Manufacturing</router-link>
             </v-list-tile-title>
           </v-list-tile>
           <v-list-tile>
@@ -62,22 +63,32 @@
               <router-link to="/contact">Contact</router-link>
             </v-list-tile-title>
           </v-list-tile>
+          </v-list>
         </v-navigation-drawer>
         <v-toolbar class="main-toolbar">
-          <v-toolbar-side-icon @click.native.stop="sideNav=!sideNav" class="hidden-md-and-up"></v-toolbar-side-icon>
-          <img
+          <v-toolbar-side-icon @click.native.stop="sideNav=!sideNav" class="hidden-md-and-up" aria-label="Main Menu"></v-toolbar-side-icon>
+          <template v-if="$vuetify.breakpoint.smAndDown">
+    <img    alt="Ekatva Collections"
             src="https://res.cloudinary.com/ddu4bac2x/image/upload/v1544884640/ekatvalogo.jpg"
             height="44px"
             width="44px"
           >
+  </template>
+          <template v-else-if="$vuetify.breakpoint.mdAndUp">
+          <img alt="Ekatva Collections"
+            src="https://res.cloudinary.com/ddu4bac2x/image/upload/v1544884640/ekatvalogo.jpg"
+            height="54px"
+            width="54px"
+          >
+  </template>
 
           <v-spacer></v-spacer>
           <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn flat>
+            <v-btn flat aria-label="Home">
               <router-link to="/">Home</router-link>
             </v-btn>
             <v-menu attach class="main-vmenu">
-              <v-btn slot="activator" class="menu-btn">Products</v-btn>
+              <v-btn slot="activator" aria-label="Products" class="menu-btn">Products</v-btn>
 
               <v-list class="menu-list">
                 <v-list-tile v-for="(item, index) in products" :key="index">
@@ -88,13 +99,15 @@
               </v-list>
             </v-menu>
 
-            <v-btn flat>Blog</v-btn>
-            <v-btn flat>
+            <v-btn flat aria-label="Manufacturing">
+              <router-link to="/manufacturing">Manufacturing</router-link>
+            </v-btn>
+            <v-btn flat aria-label="Contact">
               <router-link to="/contact">Contact</router-link>
             </v-btn>
-            <v-btn flat>
-              <router-link>About us</router-link>
-            </v-btn>
+            <!-- <v-btn flat>
+              <router-link to="#">About us</router-link>
+            </v-btn>-->
           </v-toolbar-items>
         </v-toolbar>
       </div>
@@ -117,17 +130,17 @@ export default {
   data: () => ({
     products: [
       { title: "Dhoti", to: "dhoti", icon: "people_outline" },
-      { title: "Set Saree", to: "set-saree", icon: "people_outline" },
-      { title: "Set Mundu", to: "set-mundu", icon: "people_outline" },
-      { title: "Salwar", to: "salwar" }
+      { title: "Set Saree", to: "kerala-saree", icon: "people_outline" },
+      { title: "Set Mundu", to: "set-mundu", icon: "people_outline" }
+      // { title: "Salwar", to: "salwar" }
     ],
-    sideNav: null,
-    items: [
-      { title: "Home", icon: "dashboard", to: "/" },
-      { title: "Products", icon: "dashboard", to: "#" },
-      { title: "Blog", icon: "dashboard", to: "/blog" },
-      { title: "Contact", icon: "question_answer" }
-    ]
+    sideNav: null
+    // items: [
+    //   { title: "Home", icon: "dashboard", to: "/" },
+    //   { title: "Products", icon: "dashboard", to: "#" },
+    //   { title: "Blog", icon: "dashboard", to: "/blog" },
+    //   { title: "Contact", icon: "question_answer" }
+    // ]
   }),
   components: {
     Footer
@@ -189,5 +202,4 @@ a {
   height: 200% !important;
   max-height: calc(200% - 0px) !important;
 }
-
 </style>
