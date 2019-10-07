@@ -12,7 +12,7 @@
           <v-layout class="mt-30">
             <v-flex class="font-custom">
               <p>Ekatva Kerala Kasavu Saree weave stories of latest styles keeping the age-old traditions intact. Our Kerala Set Sarees will make women look elegant and regal which are available in both traditional and modern styles. Our collection of Sarees speak deep-rooted in tradition and are weaved in Kuthampully Village, Kerala.</p>
-              <p>Kerala sarees are offered in cotton and silk fabrics and is continuously evolving in today’s trend time with modern and contemporary style. Our sarees follow standard specifications of saree - 6.25m length and 48inches length. Our weavers bring traditional quality and modern concepts in the most attractive manner in the texture of ekatva sarees and we bring the latest Kerala Saree designs.Our Kerala Kasavu Saree designs are unique and modern in style with works like mural,embroidery and handprints on the saree.</p>
+              <p><a href="https://www.amazon.in/slp/kerala-sarees/7aa836xfac385kq">Kerala sarees</a> are offered in cotton and silk fabrics and is continuously evolving in today’s trend time with modern and contemporary style. Our sarees follow standard specifications of saree - 6.25m length and 48inches length. Our weavers bring traditional quality and modern concepts in the most attractive manner in the texture of ekatva sarees and we bring the latest Kerala Saree designs.Our Kerala Kasavu Saree designs are unique and modern in style with works like mural,embroidery and handprints on the saree.</p>
               <p>Kerala saree is specially known as the saree of either white or cream with kasavu (golden threads). The process
 of making this saree involves the constant hardships of the weaver during all the steps of making it. Cotton yarns
 are generally brought from the Salem regions of Tamilnadu and Sari threads from Surat. The cotton yarn of the
@@ -49,98 +49,20 @@ Keralites live in the world.</p>
               <strong>Ekatva Kerala Sarees</strong>
             </h2>
           </v-flex>
-
-          <carousel :scrollPerPage="true" :perPageCustom="[[300, 1], [480, 2], [768, 3]]">
-            <slide v-for="item in items" :key="item.name">
-              <v-card hover raised  v-if="$vuetify.breakpoint.xsAndDown">
-                <v-img class="saree-img white--text" :alt="item.name" height="200px" :src="item.srcXs">
-                  <!-- //:src="item.image" -->
-                  <v-container fill-height fluid>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-img>
-                <v-card-title>
-                  <div class="card-content">
-                    <h4>{{item.name}}</h4>
-                  </div>
-                </v-card-title>
-              </v-card>
-              <v-card hover raised v-else-if="$vuetify.breakpoint.smAndDown">
-                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcSm">
-                  <!-- //:src="item.image" -->
-                  <v-container fill-height fluid>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-img>
-                <v-card-title>
-                  <div class="card-content">
-                    <h4>{{item.name}}</h4>
-                  </div>
-                </v-card-title>
-              </v-card>
-              <v-card hover raised v-else-if="$vuetify.breakpoint.mdAndDown">
-                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcMd">
-                  <!-- //:src="item.image" -->
-                  <v-container fill-height fluid>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-img>
-                <v-card-title>
-                  <div class="card-content">
-                    <h4>{{item.name}}</h4>
-                  </div>
-                </v-card-title>
-              </v-card>
-              <v-card hover raised v-else-if="$vuetify.breakpoint.lgAndDown" >
-                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcLg">
-                  <!-- //:src="item.image" -->
-                  <v-container fill-height fluid>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-img>
-                <v-card-title>
-                  <div class="card-content">
-                    <h4>{{item.name}}</h4>
-                  </div>
-                </v-card-title>
-              </v-card>
-              <v-card hover raised v-else>
-                <v-img class="white--text saree-img" height="200px" :alt="item.name" :src="item.srcXl">
-
-                  <v-container fill-height fluid>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-img>
-                <v-card-title>
-                  <div class="card-content">
-                    <h4>{{item.name}}</h4>
-                  </div>
-                </v-card-title>
-              </v-card>
-            </slide>
-          </carousel>
-        </v-layout>
+</v-layout>
       </div>
+      <v-container align-center>
+        <v-layout align-center justify-center>
+        <v-flex>
+          <img class="image" v-for="(image, i) in images" :key='i' :src="image" @click="onClick(i)">
+  <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
+        </v-flex>
+      </v-layout>
+      </v-container>
+
+
+
+
     </section>
     <section>
       <v-parallax :src="require(`@/assets/${img}`)" height="380">
@@ -193,26 +115,43 @@ Keralites live in the world.</p>
 </template>
 
 <script>
-import { Carousel, Slide } from "vue-carousel";
+
+import VueGallerySlideshow from 'vue-gallery-slideshow'
+import axios from 'axios'
 export default {
   name: "setsaree",
   head: {
     title: {
-      inner: `Latest Kerala Saree`,
-      separator: '|',
+      inner: `Kerala Kasavu Saree `,
+      separator: '| ',
       complement: 'Kerala Saree Wholesale Merchant',
     meta: [
        { name: 'description', content: `Latest Kerala Saree designs, unique amd modern styles from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates.` }
     ]
   }},
   components: {
-    Carousel,
-    Slide
+    VueGallerySlideshow
+  },
+  created() {
+
+      axios.get('https://res.cloudinary.com/ddu4bac2x/image/list/keralasaree.json')
+          .then(({ data }) => {
+            //console.log(data.resources);
+            //this.setState({ videos: res.data.resources});
+            //this.test = res.data
+            this.images = data.resources.map(item => {
+              return `https://res.cloudinary.com/ddu4bac2x/image/upload/v${item.version}/${item.public_id}.${item.format}`
+            })
+
+    });
+
+
   },
   data() {
     return {
       img: "section.jpg",
-
+      images: {},
+   index: null,
       crumbs: [
         {
           text: "Home",
@@ -230,162 +169,14 @@ export default {
           disabled: true,
           href: "/products/kerala-saree"
         }
-      ],
-
-      items: [
-        {
-          name: "Ekatva Rithu Collection",
-          tag: "cotton",
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1562105997/Saree/rithucollection.jpg",
-
-          srcSm:
-          "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_250,w_300/v1562105997/Saree/rithucollection.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1544885095/Dhoti/ekatvadhothi.jpg",
-          srcMd:
-          "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_250,w_284/v1562105997/Saree/rithucollection.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544885095/Dhoti/ekatvadhothi.jpg",
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_250,w_275/v1562105997/Saree/rithucollection.jpg",
-
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1544885095/Dhoti/ekatvadhothi.jpg",
-          srcXl:
-          "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1562105997/Saree/rithucollection.jpg"
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544885095/Dhoti/ekatvadhothi.jpg"
-        },
-        {
-          name: "Ekatva Rithu Collections 1",
-          tag: "cotton",
-
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1562107648/Saree/rithucollection2.jpg",
-
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1562107648/Saree/rithucollection2.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1544885496/Dhoti/silverkasavudhoti.jpg",
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1562107648/Saree/rithucollection2.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544885496/Dhoti/silverkasavudhoti.jpg",
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1562107648/Saree/rithucollection2.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1544885496/Dhoti/silverkasavudhoti.jpg",
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1562107648/Saree/rithucollection2.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544885496/Dhoti/silverkasavudhoti.jpg"
-        },
-        {
-          name: "Ekatva Rithu Collections 2",
-          tag: "cotton",
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1562107359/Saree/rithucollection1.jpg",
-
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1562107359/Saree/rithucollection1.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1544887188/Dhoti/dhothiorange.jpg",
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1562107359/Saree/rithucollection1.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544887188/Dhoti/dhothiorange.jpg",
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1562107359/Saree/rithucollection1.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1544887188/Dhoti/dhothiorange.jpg",
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1562107359/Saree/rithucollection1.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544887188/Dhoti/dhothiorange.jpg"
-        },
-        {
-          name: "Kerala Saree with mural print design",
-          tag: "cotton",
-          srcXs:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1546397049/Saree/ekatvakeralasaree3.jpg",
-
-          srcSm:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1546397049/Saree/ekatvakeralasaree3.jpg",
-          srcMd:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546397049/Saree/ekatvakeralasaree3.jpg",
-          srcLg:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1546397049/Saree/ekatvakeralasaree3.jpg",
-          srcXl:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_250,w_284/v1546397049/Saree/ekatvakeralasaree3.jpg"
-        },
-        {
-          name: "Kerala Saree with floral design print",
-          tag: "cotton",
-          srcXs:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1546397114/Saree/ekatvakeralasaree4.jpg",
-          srcSm:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1546397114/Saree/ekatvakeralasaree4.jpg",
-          srcMd:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546397114/Saree/ekatvakeralasaree4.jpg",
-          srcLg:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1546397114/Saree/ekatvakeralasaree4.jpg",
-          srcXl:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546397114/Saree/ekatvakeralasaree4.jpg"
-        }
-        ,
-        {
-          name: "Kerala Saree with silver and blue kara",
-          tag: "cotton",
-
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1546397115/Saree/ekatvakeralasaree5.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1544887188/Dhoti/dhothibrown.jpg",
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1546397115/Saree/ekatvakeralasaree5.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1544887188/Dhoti/dhothibrown.jpg",
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546397115/Saree/ekatvakeralasaree5.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544887188/Dhoti/dhothibrown.jpg",
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1546397115/Saree/ekatvakeralasaree5.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1544887188/Dhoti/dhothibrown.jpg",
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546397115/Saree/ekatvakeralasaree5.jpg"
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544887188/Dhoti/dhothibrown.jpg"
-        },
-        {
-          name: "Kerala Saree with buddha print",
-          tag: "cotton",
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1544886242/Saree/ekatvakeralasaree21.jpg",
-
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1544886242/Saree/ekatvakeralasaree21.jpg",
-
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544886242/Saree/ekatvakeralasaree21.jpg",
-
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1544886242/Saree/ekatvakeralasaree21.jpg",
-
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544886242/Saree/ekatvakeralasaree21.jpg"
-
-        },
-        {
-          name: "Kerala Saree with green and orange kara",
-          tag: "cotton",
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1544886244/Saree/ekatvakeralasaree20.jpg",
-
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1544886244/Saree/ekatvakeralasaree20.jpg",
-
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544886244/Saree/ekatvakeralasaree20.jpg",
-
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1544886244/Saree/ekatvakeralasaree20.jpg",
-
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544886244/Saree/ekatvakeralasaree20.jpg"
-
-        },
-        {
-          name: "Kerala Saree with peacock print & blue kara",
-          tag: "cotton",
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1544886244/Saree/ekatvakeralasaree19.jpg",
-
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1544886244/Saree/ekatvakeralasaree19.jpg",
-
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544886244/Saree/ekatvakeralasaree19.jpg",
-
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1544886244/Saree/ekatvakeralasaree19.jpg",
-
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1544886244/Saree/ekatvakeralasaree19.jpg"
-
-        },
-        {
-          name: "Kerala Saree with attached blouse",
-          tag: "cotton",
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_379/v1546396979/Saree/ekatvakeralasaree18.jpg",
-
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_344/v1546396979/Saree/ekatvakeralasaree18.jpg",
-
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546396979/Saree/ekatvakeralasaree18.jpg",
-
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_256/v1546396979/Saree/ekatvakeralasaree18.jpg",
-
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_300,w_284/v1546396979/Saree/ekatvakeralasaree18.jpg"
-
-        }
-
-
-
       ]
     };
+  },
+  methods: {
+    onClick(i) {
+        this.index = i;
+      }
+
   }
 };
 </script>
@@ -416,8 +207,15 @@ h2.horizontal-line:after {
   left: 0.5em;
   margin-right: -50%;
 }
-.v-responsive {
+/* .v-responsive {
   height: 300px !important;
+} */
+.image {
+  width: 250px;
+  height: 250px;
+  background-size: contain;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 3px;
 }
-
 </style>

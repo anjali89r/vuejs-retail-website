@@ -1,0 +1,11 @@
+{
+  "name": "ekatva-email",
+  "description": "Send emails to customers",
+  "version": "1.0.0",
+  "author": "govind",
+  "dependencies": {
+    "convert-csv-to-json": "^0.0.15",
+    "handlebars":"^4.1.2",
+    "aws-sdk": "2.485.0"
+  }
+}

@@ -15,7 +15,7 @@ module.exports = {
     // }),
      new PrerenderSPAPlugin({
        staticDir: path.join(__dirname, 'dist'),  // Required - The path to the webpack-outputted app to prerender.
-       routes: ['/', '/products/dhoti', '/products/kerala-saree', '/products/set-mundu', '/contact', '/manufacturing'], // List of routes to prerender.
+       routes: ['/', '/products/dhoti', '/products/kerala-saree', '/products/set-mundu','/products/khadi-kurta-for-men', '/contact', '/manufacturing'], // List of routes to prerender.
        renderer: new Renderer({
          inject: {
            foo: 'bar'

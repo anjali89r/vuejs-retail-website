@@ -45,7 +45,7 @@
             <font-awesome-icon :icon="{ prefix: 'fab', iconName: 'whatsapp' }" :style="{ color: 'green' }"/>
           </v-flex>
           <v-flex xs6>
-            <a href="https://api.whatsapp.com/send?phone=918547775584" class="hyperlink"><span>+91 8547775584</span></a>
+            <a href="https://api.whatsapp.com/send?phone=917558030904" class="hyperlink"><span>+91 7558030904</span></a>
           </v-flex>
         </v-layout>
         <v-layout row wrap class="mt2">

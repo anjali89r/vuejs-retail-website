@@ -3,9 +3,9 @@
     <header id="header">
       <div class="header-top">
         <v-toolbar color="white">
-          <v-btn icon target="_blank"  href="https://wa.me/918547775584" class="hidden-sm-and-down">
+          <v-btn icon target="_blank"  href="https://wa.me/917558030904" class="hidden-sm-and-down">
             <font-awesome-icon icon="phone-volume"/>
-            <span class="font-content icon-left">+918547775584</span>
+            <span class="font-content icon-left">+917558030904</span>
           </v-btn>
 
           <v-spacer></v-spacer>
@@ -131,8 +131,8 @@ export default {
     products: [
       { title: "Dhoti", to: "dhoti", icon: "people_outline" },
       { title: "Set Saree", to: "kerala-saree", icon: "people_outline" },
-      { title: "Set Mundu", to: "set-mundu", icon: "people_outline" }
-      // { title: "Salwar", to: "salwar" }
+      { title: "Set Mundu", to: "set-mundu", icon: "people_outline" },
+      { title: "Khadi Kurta", to: "khadi-kurta-for-men", icon: "people_outline" }
     ],
     sideNav: null
     // items: [

@@ -46,6 +46,14 @@ export default new Router({
       component: () => import(/* webpackChunkName: "setmundu" */ './views/SetMundu.vue')
     },
     {
+      path: '/products/khadi-kurta-for-men',
+      name: 'khadiKurta',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "setsaree" */ './views/KhadiKurta.vue')
+    },
+    {
       path: '/contact',
       name: 'contact',
       // route level code-splitting

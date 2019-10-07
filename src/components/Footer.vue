@@ -7,7 +7,7 @@
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="/manufacturing">Manufacturing</a></li>
-                        <li><a target="_blank" href="https://www.amazon.in/gp/search/ref=as_li_qf_sp_sr_tl?ie=UTF8&tag=ekatva-21&keywords=ekatva collections&index=aps&camp=3638&creative=24630&linkCode=ur2&linkId=8afafe302139f5384858f4e96090b958">Buy from Amazon</a></li>
+                        <li><a target="_blank" href="https://www.amazon.in/stores/node/17500612031?_encoding=UTF8&amp;field-lbr_brands_browse-bin=Ekatva&amp;ref_=w_bl_sl_ap_ap_web_17500612031&_encoding=UTF8&tag=ekatva0f-21&linkCode=ur2&linkId=0ca107190c8f8864e4a41cc9c6620bd8&camp=3638&creative=24630">Buy from Amazon</a></li>
 
                     </ul>
                 </v-flex>
@@ -16,7 +16,8 @@
                     <ul>
                         <li><a href="/products/dhoti">Dhoti</a></li>
                         <li><a href="/products/set-mundu">Set Mundu</a></li>
-                        <li><a href="/products/kerala-saree">Set Saree</a></li>
+                        <li><a href="/products/kerala-saree">Kerala Saree</a></li>
+                        <li><a href="/products/khadi-kurta-for-men">Khadi Kurta</a></li>
 
                     </ul>
                 </v-flex>
@@ -27,8 +28,8 @@
                         <li>Ottapalam,Kerala-679101</li>
                         <li><v-icon class="phone-style">local_post_office</v-icon> ekatvagms@gmail.com</li>
                         <li><v-icon class="phone-style">local_phone</v-icon>
-                        <a href="tel:+918547775584">
-                            <span> +91 8547775584</span></a></li>
+                        <a href="tel:+917558030904">
+                            <span> +91 7558030904</span></a></li>
                     </ul>
 
                     <!-- <ul>

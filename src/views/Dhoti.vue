@@ -33,97 +33,18 @@
             </h2>
           </v-flex>
 
-          <carousel :scrollPerPage="true" :perPageCustom="[[300, 1], [480, 2], [768, 3]]">
-            <slide v-for="item in items" :key="item.name">
-              <v-card hover raised v-if="$vuetify.breakpoint.xsAndDown">
-                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcXs">
-                  <!-- //:src="item.image" -->
-                  <v-container fill-height fluid>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-img>
-                <v-card-title>
-                  <div class="card-content">
-                    <h4>{{item.name}}</h4>
-                  </div>
-                </v-card-title>
-              </v-card>
-              <v-card hover raised v-else-if="$vuetify.breakpoint.smAndDown">
-                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcSm">
-                  <!-- //:src="item.image" -->
-                  <v-container fill-height fluid>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-img>
-                <v-card-title>
-                  <div class="card-content">
-                    <h4>{{item.name}}</h4>
-                  </div>
-                </v-card-title>
-              </v-card>
-              <v-card hover raised v-else-if="$vuetify.breakpoint.mdAndDown">
-                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcMd">
-                  <!-- //:src="item.image" -->
-                  <v-container fill-height fluid>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-img>
-                <v-card-title>
-                  <div class="card-content">
-                    <h4>{{item.name}}</h4>
-                  </div>
-                </v-card-title>
-              </v-card>
-              <v-card hover raised v-else-if="$vuetify.breakpoint.lgAndDown">
-                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcLg">
-                  <!-- //:src="item.image" -->
-                  <v-container fill-height fluid>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-img>
-                <v-card-title>
-                  <div class="card-content">
-                    <h4>{{item.name}}</h4>
-                  </div>
-                </v-card-title>
-              </v-card>
-              <v-card hover raised v-else>
-                <v-img class="saree-img white--text" height="200px" :alt="item.name" :src="item.srcXl">
-                  <!-- //:src="item.image" -->
-                  <v-container fill-height fluid>
-                    <v-layout fill-height>
-                      <v-flex xs12 align-end flexbox>
-                        <span class="headline"></span>
-                      </v-flex>
-                    </v-layout>
-                  </v-container>
-                </v-img>
-                <v-card-title>
-                  <div class="card-content">
-                    <h4>{{item.name}}</h4>
-                  </div>
-                </v-card-title>
-              </v-card>
-            </slide>
-          </carousel>
+
         </v-layout>
       </div>
+      <v-container align-center>
+        <v-layout align-center justify-center>
+        <v-flex>
+          <img class="image" v-for="(image, i) in images" :key='i' :src="image" @click="onClick(i)">
+  <vue-gallery-slideshow :images="images" :index="index" @close="index = null"></vue-gallery-slideshow>
+        </v-flex>
+      </v-layout>
+      </v-container>
+
     </section>
     <section>
       <v-parallax :src="require(`@/assets/${img}`)" height="380">
@@ -175,7 +96,8 @@
 </template>
 
 <script>
-import { Carousel, Slide } from "vue-carousel";
+import VueGallerySlideshow from 'vue-gallery-slideshow'
+import axios from 'axios'
 export default {
   name: "dhoti",
   head: {
@@ -188,13 +110,28 @@ export default {
     ]
   }},
   components: {
-    Carousel,
-    Slide
+    VueGallerySlideshow
+  },
+  created() {
+
+      axios.get('https://res.cloudinary.com/ddu4bac2x/image/list/dhothi.json')
+          .then(({ data }) => {
+            //console.log(data.resources);
+            //this.setState({ videos: res.data.resources});
+            //this.test = res.data
+            this.images = data.resources.map(item => {
+              return `https://res.cloudinary.com/ddu4bac2x/image/upload/v${item.version}/${item.public_id}.${item.format}`
+            })
+
+    });
+
+
   },
   data() {
     return {
       img: "section.jpg",
-
+  images: {},
+   index: null,
       crumbs: [
         {
           text: "Home",
@@ -212,116 +149,14 @@ export default {
           disabled: true,
           href: "/products/dhoti"
         }
-      ],
-
-      items: [
-        {
-          name: "Golden Kasavu Dhoti",
-          tag: "cotton",
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1546393977/Dhoti/ekatvagoldendhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1544885095/Dhoti/ekatvadhothi.jpg",
-          srcSm:
-          "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1546393977/Dhoti/ekatvagoldendhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544885095/Dhoti/ekatvadhothi.jpg",
-          srcMd:
-          "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546393977/Dhoti/ekatvagoldendhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544885095/Dhoti/ekatvadhothi.jpg",
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1546393977/Dhoti/ekatvagoldendhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544885095/Dhoti/ekatvadhothi.jpg",
-          srcXl:
-          "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546393977/Dhoti/ekatvagoldendhoti.jpg"
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544885095/Dhoti/ekatvadhothi.jpg"
-        },
-        {
-          name: "Silver Kasavu Dhoti",
-          tag: "cotton",
-
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1544885496/Dhoti/silverkasavudhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1544885496/Dhoti/silverkasavudhoti.jpg",
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544885496/Dhoti/silverkasavudhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544885496/Dhoti/silverkasavudhoti.jpg",
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544885496/Dhoti/silverkasavudhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544885496/Dhoti/silverkasavudhoti.jpg",
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544885496/Dhoti/silverkasavudhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544885496/Dhoti/silverkasavudhoti.jpg",
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544885496/Dhoti/silverkasavudhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544885496/Dhoti/silverkasavudhoti.jpg"
-        },
-        {
-          name: "Golden & Silver Dhoti",
-          tag: "cotton",
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1546391817/Dhoti/ekatvadhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1544887188/Dhoti/dhothiorange.jpg",
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1546391817/Dhoti/ekatvadhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544887188/Dhoti/dhothiorange.jpg",
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546391817/Dhoti/ekatvadhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothiorange.jpg",
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1546391817/Dhoti/ekatvadhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544887188/Dhoti/dhothiorange.jpg",
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546391817/Dhoti/ekatvadhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothiorange.jpg"
-        },
-        {
-          name: "Saffron Color Dhoti",
-          tag: "cotton",
-          srcXs:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1544887188/Dhoti/dhothiorange.jpg",
-          srcSm:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544887188/Dhoti/dhothiorange.jpg",
-          srcMd:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothiorange.jpg",
-          srcLg:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544887188/Dhoti/dhothiorange.jpg",
-          srcXl:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothiorange.jpg"
-        },
-        {
-          name: "Brown Color Dhoti",
-          tag: "cotton",
-          srcXs:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1544887188/Dhoti/dhothibrown.jpg",
-          srcSm:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544887188/Dhoti/dhothibrown.jpg",
-          srcMd:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothibrown.jpg",
-          srcLg:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544887188/Dhoti/dhothibrown.jpg",
-          srcXl:
-            "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothibrown.jpg"
-        }
-        ,
-        {
-          name: "Kids Golden Kasavu Dhoti",
-          tag: "cotton",
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1546395307/Dhoti/kidsdhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1544887188/Dhoti/dhothibrown.jpg",
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1546395307/Dhoti/kidsdhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544887188/Dhoti/dhothibrown.jpg",
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546395307/Dhoti/kidsdhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothibrown.jpg",
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1546395307/Dhoti/kidsdhoti.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544887188/Dhoti/dhothibrown.jpg",
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546395307/Dhoti/kidsdhoti.jpg"
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothibrown.jpg"
-        },{
-          name: "Golden Kasavu Dhotis",
-          tag: "cotton",
-          srcXs:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1546395723/Dhoti/ekatvagoldendhotis.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_379/v1544887188/Dhoti/dhothibrown.jpg",
-          srcSm:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1546395723/Dhoti/ekatvagoldendhotis.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_344/v1544887188/Dhoti/dhothibrown.jpg",
-          srcMd:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546395723/Dhoti/ekatvagoldendhotis.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothibrown.jpg",
-          srcLg:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1546395723/Dhoti/ekatvagoldendhotis.jpg",
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_256/v1544887188/Dhoti/dhothibrown.jpg",
-          srcXl:"https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1546395723/Dhoti/ekatvagoldendhotis.jpg"
-            // "https://res.cloudinary.com/ddu4bac2x/image/upload/c_scale,h_200,w_284/v1544887188/Dhoti/dhothibrown.jpg"
-        }
-
-
-
       ]
     };
+  },
+  methods: {
+    onClick(i) {
+        this.index = i;
+      }
+
   }
 };
 </script>
@@ -352,7 +187,12 @@ h2.horizontal-line:after {
   left: 0.5em;
   margin-right: -50%;
 }
-.v-responsive {
-  height: 300px !important;
+.image {
+  width: 250px;
+  height: 250px;
+  background-size: contain;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 3px;
 }
 </style>

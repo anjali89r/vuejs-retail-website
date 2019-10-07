@@ -9,7 +9,7 @@
 
         <v-layout column justify-center class="white--text jumbo-head">
           <!-- <img :src="require(`@/assets/${img}`)" alt="Vuetify.js" height="200"> -->
-          <h1 class="mb-2 display-1 text-xs-left">Kerala Saree,Dhoti & Set Mundu</h1>
+          <h1 class="mb-2 display-1 text-xs-left">Kerala Saree, Set Mundu & Dhoti</h1>
           <div class="subheading mb-3 text-xs-left">Traditional Kuthampully Handloom </div>
           <!-- <v-btn
               class="blue lighten-2 mt-5"
@@ -39,7 +39,7 @@
                   <v-img alt="Ekatva Kerala Saree"
                     class="white--text"
                     height="200px"
-                    src="https://res.cloudinary.com/ddu4bac2x/image/upload/v1554771043/Saree/ekatvakeralasarees.jpg">
+                    src="https://res.cloudinary.com/ddu4bac2x/image/upload/v1568940194/homepage/ekatvakeralasaree.jpg">
                     <v-container fill-height fluid>
                       <v-layout fill-height>
                         <v-flex xs12 align-end flexbox>
@@ -66,7 +66,7 @@
                   <v-img alt="Ekatva Set Mundu"
                     class="white--text"
                     height="200px"
-                    src="https://res.cloudinary.com/ddu4bac2x/image/upload/v1554770758/SetMundu/ekatvasetmundu_red.jpg"
+                    src="https://res.cloudinary.com/ddu4bac2x/image/upload/v1568940194/homepage/ekatvasetmundu.jpg"
                   >
                     <v-container fill-height fluid>
                       <v-layout fill-height>
@@ -133,7 +133,7 @@
         <v-layout column align-center justify-center>
           <div
             class="headline white--text mb-3 text-xs-center display-1"
-          >Our wide range of clothing is available in retail and wholesale across India.</div>Contact Us to know more
+          >Our wide range of clothing is available in retail and wholesale across India.</div>Contact Us through WhatsApp or call to get price & order online
           <v-btn class="contact-btn mt-5" dark href="/contact">Contact Us</v-btn>
         </v-layout>
       </v-parallax>
@@ -150,7 +150,7 @@
               <v-card-text class="font-custom">
                 <p>
                   Ekatva Collections brings to you a unique selection of traditional
-                  <strong>Kerala handloom and ethnic products</strong> to our patrons. Kerala traditional wear has always had a special place in the hearts of fashion conscious Indian women and men.Kerala Saree also known as the kasavu saree the traditional wear of the Keralites is seen worn by the women during different occasions and festivals. Traditional wears of Kerala are the Kerala Set-Saree, Set-Mundu, Neriyath,
+                  <strong>Kerala handloom and ethnic products</strong> to our patrons. Kerala traditional wear has always had a special place in the hearts of fashion conscious Indian women and men.Kerala Kasavu Saree also known as the kasavu saree the traditional wear of the Keralites is seen worn by the women during different occasions and festivals. Traditional wears of Kerala are the Kerala Set-Saree, Set-Mundu, Neriyath,
 Kavani, Kasava etc. These traditional wears are specially made at Kuthampully of the Thrissur district of Kerala
 in India.Kerala Saree generally is of a single piece of cloth where as traditional mundum neriyathum is of a two piece
 cloth. It is considered as the cultural costume of the Malayali community with the beauty and charm of the golden borders with the plain white mundum neriyathum. Now days this is mostly draped in the nivi or the national
