@@ -102,13 +102,20 @@ export default {
   name: "dhoti",
   head: {
     title: {
-      inner: `Buy Dhoti, Mundu and Kid's Dhoti`,
-      separator: '-',
-      complement: 'Ekatva',
+      inner: 'Buy Dhoti, Mundu and Kids Dhoti',
+      separator: '|',
+      complement: 'Buy Kerala Dhoti Online'
+    },
+      link: [
+          { rel: 'canonical', href: 'https://ekatvacollections.com/products/dhoti', id: 'canonical' },
+    ],
     meta: [
-       { name: 'description', content: `Buy Dhoti, Mundu and kid's Dhoti from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates.` }
+       { name: 'description', content: `Buy Dhoti, Mundu and kid's Dhoti from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates`,id: 'desc' },
+        { name: 'twitter:title', content: 'Buy Dhoti, Mundu and Kids Dhoti | Buy Kerala Dhoti Online' },
+        { n: 'twitter:description', c: 'Buy Dhoti, Mundu and kids Dhoti from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates'},
+        { property: 'og:title', content: 'Buy Dhoti, Mundu and Kids Dhoti | Buy Kerala Dhoti Online' },
     ]
-  }},
+  },
   components: {
     VueGallerySlideshow
   },

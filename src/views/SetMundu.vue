@@ -95,15 +95,23 @@ import VueGallerySlideshow from 'vue-gallery-slideshow'
 import axios from 'axios'
 export default {
   name: "set-mundu",
-  head: {
+   head: {
     title: {
-      inner: `Kerala Set Mundu `,
-      separator: '| ',
-      complement: 'Kuthampully Set Mundu Wholesale Merchant',
+      inner: 'Kerala Set Mundu',
+      separator: '|',
+      complement: 'Kuthampully Set Mundu Wholesale Merchant'
+    },
+      link: [
+          { rel: 'canonical', href: 'https://ekatvacollections.com/products/kerala-saree', id: 'canonical' },
+    ],
     meta: [
-       { name: 'description', content: `Buy unique Kerala Set Mundu collections from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates.` }
+       { name: 'description', content: `Buy unique Kerala Set Mundu collections from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates`,id: 'desc' },
+        { name: 'twitter:title', content: 'Kerala Set Mundu | Kuthampully Set Mundu Wholesale Merchant' },
+        { n: 'twitter:description', c: 'Buy unique Kerala Set Mundu collections from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates'},
+        { property: 'og:title', content: 'Kerala Set Mundu | Kuthampully Set Mundu Wholesale Merchant' },
     ]
-  }},
+  },
+
   components: {
      VueGallerySlideshow
 

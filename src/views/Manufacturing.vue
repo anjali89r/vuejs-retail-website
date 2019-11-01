@@ -137,13 +137,21 @@ export default {
   name: "manufacturing",
    head: {
     title: {
-      inner: `Kuthampully Handlooms WholeSale Merchant`,
+      inner: 'Kuthampully Handlooms WholeSale Merchant',
       separator: '|',
-      complement: 'Ekatva',
+      complement: 'Ekatva'
+    },
+      link: [
+          { rel: 'canonical', href: 'https://ekatvacollections.com/manufacturing', id: 'canonical' },
+    ],
     meta: [
-       { name: 'description', content: `Ekatva produces Kuthampully Handlooms and is wholesale merchant selling traditional kerala saree, dhoti and set mundu.` }
+       { name: 'description', content: `Ekatva produces Kuthampully Handlooms and is wholesale merchant selling traditional kerala saree, dhoti and set mundu`,id: 'desc' },
+        { name: 'twitter:title', content: 'Kuthampully Handlooms WholeSale Merchant | Ekatva' },
+        { n: 'twitter:description', c: 'Ekatva produces Kuthampully Handlooms and is wholesale merchant selling traditional kerala saree, dhoti and set mundu'},
+        { property: 'og:title', content: 'Kuthampully Handlooms WholeSale Merchant | Ekatva' },
     ]
-  }},
+  },
+
   // components: {
   //   Carousel,
   //   Slide

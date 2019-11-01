@@ -120,15 +120,23 @@ import VueGallerySlideshow from 'vue-gallery-slideshow'
 import axios from 'axios'
 export default {
   name: "setsaree",
-  head: {
+    head: {
     title: {
-      inner: `Kerala Kasavu Saree `,
-      separator: '| ',
-      complement: 'Kerala Saree Wholesale Merchant',
+      inner: 'Kerala Kasavu Saree',
+      separator: '|',
+      complement: 'Kerala Saree Wholesale Merchant'
+    },
+      link: [
+          { rel: 'canonical', href: 'https://ekatvacollections.com/products/kerala-saree', id: 'canonical' },
+    ],
     meta: [
-       { name: 'description', content: `Latest Kerala Saree designs, unique amd modern styles from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates.` }
+       { name: 'description', content: `Latest Kerala Saree designs, unique amd modern styles from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates`,id: 'desc' },
+        { name: 'twitter:title', content: 'Kerala Kasavu Saree | Kerala Saree Wholesale Merchant' },
+        { n: 'twitter:description', c: 'Latest Kerala Saree designs, unique amd modern styles from Ekatva. We are a wholesale merchant selling traditional kerala saree, dhoti and set mundu for discounted rates'},
+        { property: 'og:title', content: 'Kerala Kasavu Saree | Kerala Saree Wholesale Merchant' },
     ]
-  }},
+  },
+
   components: {
     VueGallerySlideshow
   },

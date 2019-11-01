@@ -102,13 +102,20 @@ export default {
   name: "khadikurta",
   head: {
     title: {
-      inner: `Khadi Kurta for Men `,
+      inner: 'Khadi Kurta for Men',
       separator: '|',
-      complement: ' Buy Khadi Clothings for Men',
+      complement: 'Buy Khadi Clothings for Men'
+    },
+      link: [
+          { rel: 'canonical', href: 'https://ekatvacollections.com/products/khadi-kurta-for-men', id: 'canonical' },
+    ],
     meta: [
-       { name: 'description', content: `Discover and buy a wide variety of khadi kurta for men online from by Ekatva.` }
+       { name: 'description', content: `Discover and buy a wide variety of khadi kurta for men online from by Ekatva.Enjoy Free Shipping in India`,id: 'desc' },
+        { name: 'twitter:title', content: 'Khadi Kurta for Men | Buy Khadi Clothings for Men' },
+        { n: 'twitter:description', c: 'Discover and buy a wide variety of khadi kurta for men online from by Ekatva.Enjoy Free Shipping in India'},
+        { property: 'og:title', content: 'Khadi Kurta for Men | Buy Khadi Clothings for Men' },
     ]
-  }},
+  },
   components: {
     VueGallerySlideshow
   },

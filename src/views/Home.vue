@@ -34,9 +34,9 @@
         <v-flex xs12>
           <v-container grid-list-sm>
             <v-layout row wrap align-center>
-              <v-flex xs12 sm6 md4>
-                <v-card hover raised>
-                  <v-img alt="Ekatva Kerala Saree"
+              <v-flex xs12 sm6 md3>
+                <v-card heigth=100% hover raised>
+                  <a href="/products/kerala-saree"><v-img alt="Ekatva Kerala Saree"
                     class="white--text"
                     height="200px"
                     src="https://res.cloudinary.com/ddu4bac2x/image/upload/v1568940194/homepage/ekatvakeralasaree.jpg">
@@ -47,7 +47,7 @@
                         </v-flex>
                       </v-layout>
                     </v-container>
-                  </v-img>
+                  </v-img></a>
                   <v-card-title>
                     <div class="text-left card-content">
                       <h2><a href="/products/kerala-saree">Kerala Sarees</a></h2>
@@ -56,14 +56,14 @@
                   </v-card-title>
                   <v-card-actions>
                     <v-btn flat>
-                      <a class="orange-link" href="/products/kerala-saree">Learn more</a>
+                      <a class="orange-link" href="/products/kerala-saree">Explore Our Collection</a>
                     </v-btn>
                   </v-card-actions>
                 </v-card>
               </v-flex>
-              <v-flex xs12 sm6 md4>
-                <v-card hover raised>
-                  <v-img alt="Ekatva Set Mundu"
+              <v-flex xs12 sm6 md3>
+                <v-card heigth=100% hover raised>
+                  <a href="/products/set-mundu"><v-img alt="Ekatva Set Mundu"
                     class="white--text"
                     height="200px"
                     src="https://res.cloudinary.com/ddu4bac2x/image/upload/v1568940194/homepage/ekatvasetmundu.jpg"
@@ -75,7 +75,7 @@
                         </v-flex>
                       </v-layout>
                     </v-container>
-                  </v-img>
+                  </v-img></a>
                   <v-card-title>
                     <div class="text-left card-content">
                       <h2><a href="/products/set-mundu">Set Mundu</a></h2>
@@ -84,14 +84,14 @@
                   </v-card-title>
                   <v-card-actions>
                     <v-btn flat>
-                      <a class="orange-link" href="/products/set-mundu">Learn more</a>
+                      <a class="orange-link" href="/products/set-mundu">Explore Our Collection</a>
                     </v-btn>
                   </v-card-actions>
                 </v-card>
               </v-flex>
-              <v-flex xs12 sm6 md4>
-                <v-card hover raised>
-                  <v-img alt="Ekatva Dhoti"
+              <v-flex xs12 sm6 md3>
+                <v-card heigth=100% hover raised>
+                  <a href="/products/dhoti"><v-img alt="Ekatva Dhoti"
                     class="white--text"
                     height="200px"
                     aspect-ratio="1"
@@ -104,7 +104,7 @@
                         </v-flex>
                       </v-layout>
                     </v-container>
-                  </v-img>
+                  </v-img></a>
                   <v-card-title>
                     <div class="text-left card-content">
                       <h2><a href="/products/dhoti">Dhoti</a></h2>
@@ -113,7 +113,34 @@
                   </v-card-title>
                   <v-card-actions>
                     <v-btn flat>
-                      <a class="orange-link" href="/products/dhoti">Learn more</a>
+                      <a class="orange-link" href="/products/dhoti">Explore Our Collection</a>
+                    </v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-flex>
+              <v-flex xs12 sm6 md3>
+                <v-card heigth=100% hover raised>
+                  <a href="/products/khadi-kurta-for-men"><v-img alt="Ekatva Khadi Kurta"
+                    class="white--text"
+                    height="200px"
+                    src="https://res.cloudinary.com/ddu4bac2x/image/upload/v1571599248/homepage/ekatva-khadi-kurta.jpg">
+                    <v-container fill-height fluid>
+                      <v-layout fill-height>
+                        <v-flex xs12 align-end flexbox>
+                          <span class="headline"></span>
+                        </v-flex>
+                      </v-layout>
+                    </v-container>
+                  </v-img></a>
+                  <v-card-title>
+                    <div class="text-left card-content">
+                      <h2><a href="/products/khadi-kurta-for-men">Khadi Kurta</a></h2>
+                      <p>Khadi clothes online</p>
+                    </div>
+                  </v-card-title>
+                  <v-card-actions>
+                    <v-btn flat>
+                      <a class="orange-link" href="/products/khadi-kurta-for-men">Explore Our Collection</a>
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -247,14 +274,21 @@ export default {
   name: "home",
   head: {
     title: {
-      inner: `Buy Kerala Sarees,Kuthampully Sarees wholesale`,
+      inner: 'Buy Kerala Sarees,Kuthampully Sarees wholesale',
       separator: '|',
       complement: 'Ekatva'
     },
+      link: [
+          { rel: 'canonical', href: 'https://ekatvacollections.com/', id: 'canonical' },
+    ],
     meta: [
-       { name: 'description', content: `Buy Kerala sarees, Kerala dhoti and Kerala set mundu. Ekatva Collections is a wholesale merchant selling traditional Kerala saree, dhoti and set mundu and other Kuthampully handlooms.` }
+       { name: 'description', content: `Buy Kerala sarees, Kerala dhoti and Kerala set mundu. Ekatva Collections is a wholesale merchant selling traditional Kerala saree, dhoti and set mundu and other Kuthampully handlooms.`,id: 'desc' },
+        { name: 'twitter:title', content: 'Buy Kerala Sarees,Kuthampully Sarees wholesale | Ekatva' },
+        { n: 'twitter:description', c: 'Buy Kerala sarees, Kerala dhoti and Kerala set mundu. Ekatva Collections is a wholesale merchant selling traditional Kerala saree, dhoti and set mundu and other Kuthampully handlooms.'},
+        { property: 'og:title', content: 'Buy Kerala Sarees,Kuthampully Sarees wholesale | Ekatva' },
     ]
   },
+
   components: {
     VueInstagram
   },

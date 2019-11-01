@@ -65,7 +65,7 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat color="orange">Learn more</v-btn>
+          <v-btn flat color="orange">Explore Our Collection</v-btn>
 
         </v-card-actions>
                   </v-card>
@@ -93,7 +93,7 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat color="orange">Learn more</v-btn>
+          <v-btn flat color="orange">Explore Our Collection</v-btn>
 
         </v-card-actions>
                   </v-card>
@@ -121,7 +121,7 @@
           </div>
         </v-card-title>
         <v-card-actions>
-          <v-btn flat color="orange">Learn more</v-btn>
+          <v-btn flat color="orange">Explore Our Collection</v-btn>
 
         </v-card-actions>
                   </v-card>
