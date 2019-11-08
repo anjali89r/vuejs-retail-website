@@ -1,4 +1,4 @@
-# vuejs-static-site
+# vuejs-retail-website
 
 ## Project setup
 ```
