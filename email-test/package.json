@@ -7,6 +7,6 @@
     "predeploy": "zip -r Lambda-Deployment.zip * -x *.zip *.json *.log"
   },
   "dependencies": {
-    "aws-sdk": "2.505.0"
+    "aws-sdk": "2.814.0"
   }
 }
